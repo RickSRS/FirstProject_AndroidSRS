@@ -2,7 +2,9 @@ package com.richardsoares.firstproject_androidsrs.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.richardsoares.firstproject_androidsrs.R;
 import com.richardsoares.firstproject_androidsrs.dao.AlunoDAO;
+import com.richardsoares.firstproject_androidsrs.model.Aluno;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -24,6 +27,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_alunos);
         setTitle(TITULO_APPBAR);
         fabNovoAluno();
+        dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
+        dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
     }
 
     private void fabNovoAluno() {
@@ -52,5 +57,12 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 this,
                 android.R.layout.simple_list_item_1,
                 dao.todos()));
+
+        listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
+                Log.i("posicao aluno", "" + index);
+            }
+        });
     }
 }
