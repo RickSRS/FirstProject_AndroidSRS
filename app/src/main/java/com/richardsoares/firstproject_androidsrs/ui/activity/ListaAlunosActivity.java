@@ -16,6 +16,8 @@ import com.richardsoares.firstproject_androidsrs.R;
 import com.richardsoares.firstproject_androidsrs.dao.AlunoDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
 
+import java.util.List;
+
 public class ListaAlunosActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Lista de Alunos";
@@ -53,15 +55,19 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private void configuraListViewAlunos() {
         ListView listaAlunos = findViewById(R.id.activity_lista_alunos_listview);
+        final List<Aluno> alunos = dao.todos();
         listaAlunos.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                dao.todos()));
+                alunos));
 
         listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
-                Log.i("posicao aluno", "" + index);
+                Aluno alunoEscolhido = alunos.get(index);
+                Intent vaiParaFormularioActivity = new Intent(ListaAlunosActivity.this, FormularioAlunoActivity.class);
+                vaiParaFormularioActivity.putExtra("aluno", alunoEscolhido);
+                startActivity(vaiParaFormularioActivity);
             }
         });
     }

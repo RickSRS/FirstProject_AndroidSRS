@@ -1,5 +1,6 @@
 package com.richardsoares.firstproject_androidsrs.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private EditText telefoneAluno;
     private EditText emailAluno;
     private final AlunoDAO dao = new AlunoDAO();
+    private Aluno aluno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,12 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         setTitle(TITULO_APPBAR);
         inicializacaoVariavel();
         configBtnSalvarAluno();
+
+        Intent dados = getIntent();
+        aluno = (Aluno) dados.getSerializableExtra("aluno");
+        nomeAluno.setText(aluno.getNome());
+        telefoneAluno.setText(aluno.getTelefone());
+        emailAluno.setText(aluno.getEmail());
     }
 
     private void configBtnSalvarAluno() {
@@ -33,8 +41,11 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Aluno alunoCriado = criaAluno();
-                salvaAluno(alunoCriado);
+                //Aluno alunoCriado = preencheAluno();
+                //salvaAluno(alunoCriado);
+                preencheAluno();
+                dao.edita(aluno);
+                finish();
             }
         });
     }
@@ -50,11 +61,13 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         finish();
     }
 
-    private Aluno criaAluno() {
+    private void preencheAluno() {
         String nome = nomeAluno.getText().toString();
         String telefone = telefoneAluno.getText().toString();
         String email = emailAluno.getText().toString();
 
-        return new Aluno(nome, telefone, email);
+        aluno.setNome(nome);
+        aluno.setTelefone(telefone);
+        aluno.setEmail(email);
     }
 }
