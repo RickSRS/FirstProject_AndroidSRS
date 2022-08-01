@@ -2,11 +2,14 @@ package com.richardsoares.firstproject_androidsrs.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,6 +38,20 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
         dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
         dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add("Remover");
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Aluno alunoEscolhido = adapter.getItem(menuInfo.position);
+        remove(alunoEscolhido);
+        return super.onContextItemSelected(item);
     }
 
     private void fabNovoAluno() {
@@ -66,18 +83,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         ListView listaAlunos = findViewById(R.id.activity_lista_alunos_listview);
         configAdapter(listaAlunos);
         configListenerClickPorItem(listaAlunos);
-        configListenerClickLongoPorItem(listaAlunos);
-    }
-
-    private void configListenerClickLongoPorItem(ListView listaAlunos) {
-        listaAlunos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int index, long id) {
-                Aluno alunoEscolhido = (Aluno) adapterView.getItemAtPosition(index);
-                remove(alunoEscolhido);
-                return false;
-            }
-        });
+        registerForContextMenu(listaAlunos);
     }
 
     private void remove(Aluno aluno) {
