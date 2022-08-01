@@ -18,8 +18,6 @@ import com.richardsoares.firstproject_androidsrs.R;
 import com.richardsoares.firstproject_androidsrs.dao.AlunoDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
 
-import java.util.List;
-
 import static com.richardsoares.firstproject_androidsrs.ui.activity.ConstantesActivities.CHAVE_ALUNO;
 
 public class ListaAlunosActivity extends AppCompatActivity {
@@ -36,21 +34,26 @@ public class ListaAlunosActivity extends AppCompatActivity {
         fabNovoAluno();
         configuraListViewAlunos();
 
-        dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
-        dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
+        for (int i = 0; i < 10; i++) {
+            dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
+            dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
+        }
     }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        menu.add("Remover");
+        getMenuInflater().inflate(R.menu.activity_lista_alunos_menu, menu);
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        Aluno alunoEscolhido = adapter.getItem(menuInfo.position);
-        remove(alunoEscolhido);
+        int itemId = item.getItemId();
+        if (itemId == R.id.activity_lista_alunos_menu_remover) {
+            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            Aluno alunoEscolhido = adapter.getItem(menuInfo.position);
+            remove(alunoEscolhido);
+        }
         return super.onContextItemSelected(item);
     }
 
