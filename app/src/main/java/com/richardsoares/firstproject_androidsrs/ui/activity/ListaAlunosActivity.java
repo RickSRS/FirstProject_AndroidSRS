@@ -23,6 +23,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private static final String TITULO_APPBAR = "Lista de Alunos";
     private final AlunoDAO dao = new AlunoDAO();
+    private ArrayAdapter<Aluno> adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_alunos);
         setTitle(TITULO_APPBAR);
         fabNovoAluno();
+        configuraListViewAlunos();
+
         dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
         dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
     }
@@ -51,14 +54,35 @@ public class ListaAlunosActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        configuraListViewAlunos();
+        atualizaAlunos();
+    }
+
+    private void atualizaAlunos() {
+        adapter.clear();
+        adapter.addAll(dao.todos());
     }
 
     private void configuraListViewAlunos() {
         ListView listaAlunos = findViewById(R.id.activity_lista_alunos_listview);
-        final List<Aluno> alunos = dao.todos();
-        configAdapter(listaAlunos, alunos);
+        configAdapter(listaAlunos);
         configListenerClickPorItem(listaAlunos);
+        configListenerClickLongoPorItem(listaAlunos);
+    }
+
+    private void configListenerClickLongoPorItem(ListView listaAlunos) {
+        listaAlunos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int index, long id) {
+                Aluno alunoEscolhido = (Aluno) adapterView.getItemAtPosition(index);
+                remove(alunoEscolhido);
+                return false;
+            }
+        });
+    }
+
+    private void remove(Aluno aluno) {
+        dao.remove(aluno);
+        adapter.remove(aluno);
     }
 
     private void configListenerClickPorItem(ListView listaAlunos) {
@@ -77,10 +101,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
         startActivity(vaiParaFormularioActivity);
     }
 
-    private void configAdapter(ListView listaAlunos, List<Aluno> alunos) {
-        listaAlunos.setAdapter(new ArrayAdapter<>(
+    private void configAdapter(ListView listaAlunos) {
+        adapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_list_item_1,
-                alunos));
+                android.R.layout.simple_list_item_1);
+        listaAlunos.setAdapter(adapter);
     }
 }
