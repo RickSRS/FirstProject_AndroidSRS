@@ -3,13 +3,9 @@ package com.richardsoares.firstproject_androidsrs.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -21,9 +17,6 @@ import com.richardsoares.firstproject_androidsrs.R;
 import com.richardsoares.firstproject_androidsrs.dao.AlunoDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
 import com.richardsoares.firstproject_androidsrs.ui.adapter.ListaAlunosAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.richardsoares.firstproject_androidsrs.ui.activity.ConstantesActivities.CHAVE_ALUNO;
 
@@ -40,11 +33,8 @@ public class ListaAlunosActivity extends AppCompatActivity {
         setTitle(TITULO_APPBAR);
         fabNovoAluno();
         configuraListViewAlunos();
-
-        for (int i = 0; i < 10; i++) {
-            dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
-            dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
-        }
+        dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
+        dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
     }
 
     @Override
@@ -85,8 +75,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
     }
 
     private void atualizaAlunos() {
-        adapter.clear();
-        adapter.addAll(dao.todos());
+        adapter.atualiza(dao.todos());
     }
 
     private void configuraListViewAlunos() {
