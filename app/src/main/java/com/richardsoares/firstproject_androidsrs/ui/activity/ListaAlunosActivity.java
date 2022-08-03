@@ -1,5 +1,7 @@
 package com.richardsoares.firstproject_androidsrs.ui.activity;
 
+import static com.richardsoares.firstproject_androidsrs.ui.activity.ConstantesActivities.CHAVE_ALUNO;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -12,12 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.richardsoares.firstproject_androidsrs.R;
-import com.richardsoares.firstproject_androidsrs.dao.AlunoDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
 import com.richardsoares.firstproject_androidsrs.ui.ListaAlunosView;
-import com.richardsoares.firstproject_androidsrs.ui.adapter.ListaAlunosAdapter;
-
-import static com.richardsoares.firstproject_androidsrs.ui.activity.ConstantesActivities.CHAVE_ALUNO;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
