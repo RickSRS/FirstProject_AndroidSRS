@@ -31,7 +31,6 @@ public class AlunoDAO {
 
     @Nullable
     private Aluno buscaAlunoPorId(Aluno aluno) {
-        Aluno alunoEncontrado = null;
         for (Aluno a :
                 alunos) {
             if (a.getId() == aluno.getId()) {
