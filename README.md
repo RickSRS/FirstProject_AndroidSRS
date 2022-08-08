@@ -1,3 +1,3 @@
-# Project - FirstProject_AndroidSRS (Contacts/Agenda)
+# Project - RickSRS-Contacts (Contacts/Agenda)
 
 In progress..
