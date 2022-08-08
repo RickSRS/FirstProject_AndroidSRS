@@ -36,8 +36,8 @@ A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, p
 
 ## Telas do aplicativo
 <div align="center" style="display: inline_block">
-    <img align="center" height="440px" alt="tela de inicial" src="https://github.com/RickSRS/RickSRS-Contacts/blob/main/imagem/telaInicial.PNG">
-    <img align="center" alt="tela de cadastro" src="https://github.com/RickSRS/RickSRS-Contacts/blob/main/imagem/telaCadastro.PNG">
+    <img align="center" height="440px" alt="tela de inicial" src="https://github.com/RickSRS/RickSRS-Contacts/blob/main/assets/telaInicial.PNG">
+    <img align="center" alt="tela de cadastro" src="https://github.com/RickSRS/RickSRS-Contacts/blob/main/assets/telaCadastro.PNG">
 </div>
 
 
