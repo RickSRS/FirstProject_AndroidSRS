@@ -5,7 +5,7 @@
 # Sobre o projeto
 A Agenda Aluno é o meu primeiro aplicativo feito em java para android nativo para treinar e aprender mais sobre desenvolvimento mobile.
 
-A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, para ter uma tema foi utilizado uma agenda para cadastrar os contatos dos alunos de uma turma e/ou escola.
+A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, para ter um tema foi utilizado uma agenda para cadastrar os contatos dos alunos de uma turma e/ou escola.
 
 ### Nesse projeto foi aprendido:
 - O que é e onde é utilizado o Android
@@ -15,7 +15,7 @@ A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, p
 - Metodos corretos para refatoração do código e clean code
 - Técnica de persistência de dados a partir do padrão DAO
 - Estados do ciclo de vida de uma Activity
-- Transferência de daods entre activities
+- Transferência de dados entre activities
 - Lidar de maneira adequada com extras
 - Implementação de menu de contexto, menus via arquivos estáticos, processo de inflar menus, configurar um listener adequadamente
 - Layouts personalizados e implementação de um adapter personalizado por meio do BaseAdapter
@@ -42,7 +42,7 @@ A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, p
 
 
 ## Aplicativo
-https://user-images.githubusercontent.com/108972853/183329329-86fdd97f-a4ce-492d-a88a-78db1c7eff8c.mp4
+https://user-images.githubusercontent.com/108972853/183425382-8d3217ec-39a2-497d-8f59-a7a332db2569.mp4
 
 # Tecnologias utilizadas
 - Java
