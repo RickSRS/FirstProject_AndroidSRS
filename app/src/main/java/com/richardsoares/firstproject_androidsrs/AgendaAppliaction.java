@@ -17,7 +17,9 @@ public class AgendaAppliaction extends Application {
     }
 
     private void criaAlunosTeste() {
-        AgendaDatabase dataBase = Room.databaseBuilder(this, AgendaDatabase.class, "agenda.db").build();
+        AgendaDatabase dataBase = Room.databaseBuilder(this, AgendaDatabase.class, "agenda.db")
+                .allowMainThreadQueries()
+                .build();
         RoomAlunoDAO dao = dataBase.getRoomAlunoDAO();
         dao.salva(new Aluno("Richard", "1112223333", "srs@gmail.com"));
         dao.salva(new Aluno("Fran", "1112223333", "fran@gmail.com"));
