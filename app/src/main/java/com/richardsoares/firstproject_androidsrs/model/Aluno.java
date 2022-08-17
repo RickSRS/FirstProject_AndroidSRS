@@ -18,28 +18,6 @@ public class Aluno implements Serializable {
     private String sobrenome;
     private String telefone;
     private String email;
-    @Ignore
-    private Calendar dataCadastro = Calendar.getInstance();
-
-    @Ignore
-    public Aluno(String nome, String sobrenome, String telefone, String email) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.telefone = telefone;
-        this.email = email;
-    }
-
-    public Aluno() {
-
-    }
-
-    public Calendar getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(Calendar dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
 
     public String getSobrenome() {
         return sobrenome;
@@ -93,10 +71,5 @@ public class Aluno implements Serializable {
 
     public String getNomeCompleto() {
         return nome + " " + sobrenome;
-    }
-
-    public String dataFormatada(){
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        return formatador.format(dataCadastro.getTime());
     }
 }
