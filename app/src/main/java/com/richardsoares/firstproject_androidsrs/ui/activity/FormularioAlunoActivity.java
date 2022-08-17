@@ -21,6 +21,7 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_NOVO_ALUNO = "Novo aluno";
     private static final String TITULO_APPBAR_EDITA_ALUNO = "Edita aluno";
     private EditText nomeAluno;
+    private EditText sobrenomeAluno;
     private EditText telefoneAluno;
     private EditText emailAluno;
     private AlunoDAO dao;
@@ -81,16 +82,19 @@ public class FormularioAlunoActivity extends AppCompatActivity {
 
     private void inicializacaoVariavel() {
         nomeAluno = findViewById(R.id.activity_formulario_aluno_nome);
+        sobrenomeAluno = findViewById(R.id.activity_formulario_aluno_sobrenome);
         telefoneAluno = findViewById(R.id.activity_formulario_aluno_telefone);
         emailAluno = findViewById(R.id.activity_formulario_aluno_email);
     }
 
     private void preencheAluno() {
         String nome = nomeAluno.getText().toString();
+        String sobrenome = sobrenomeAluno.getText().toString();
         String telefone = telefoneAluno.getText().toString();
         String email = emailAluno.getText().toString();
 
         aluno.setNome(nome);
+        aluno.setSobrenome(sobrenome);
         aluno.setTelefone(telefone);
         aluno.setEmail(email);
     }

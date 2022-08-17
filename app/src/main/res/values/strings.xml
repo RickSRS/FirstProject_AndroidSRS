@@ -6,4 +6,5 @@
     <string name="salvar">Salvar</string>
     <string name="remover">Remover</string>
     <string name="todo">Novo aluno</string>
+    <string name="sobrenome">Sobrenome</string>
 </resources>
