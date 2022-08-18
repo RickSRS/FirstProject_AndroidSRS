@@ -21,6 +21,11 @@ A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, p
 - Layouts personalizados e implementação de um adapter personalizado por meio do BaseAdapter
 - Criação de um Dialog com AlertDialog
 - Refatoração de activity delegando responsabilidades
+- Opções de armazenamento de dados do Android
+- Implementação do CRUD com o Room
+- Centralização de instância do Database SQLite
+- Migrations
+- Conversores de dados que não são convertidos automaticamente
 
 ### Foi utilizado como aprendizado nesse projeto: 
 - AdpaterView
@@ -44,8 +49,10 @@ A aplicação consiste em uma agenda que pode ser adicionado os seus contatos, p
 ## Aplicativo
 https://user-images.githubusercontent.com/108972853/183425382-8d3217ec-39a2-497d-8f59-a7a332db2569.mp4
 
-# Tecnologias utilizadas
+# Tecnologias e Conceitos
 - Java
+- ORM
+- SQLite
 
 # Clonar Projeto
 ```bash
