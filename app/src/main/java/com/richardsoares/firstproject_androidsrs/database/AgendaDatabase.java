@@ -13,7 +13,7 @@ import com.richardsoares.firstproject_androidsrs.database.converter.ConversorCal
 import com.richardsoares.firstproject_androidsrs.database.dao.AlunoDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
 
-@Database(entities = {Aluno.class}, version = 2, exportSchema = false)
+@Database(entities = {Aluno.class}, version = 4, exportSchema = false)
 @TypeConverters({ConversorCalendar.class})
 public abstract class AgendaDatabase extends RoomDatabase {
 

@@ -22,7 +22,8 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_EDITA_ALUNO = "Edita aluno";
     private EditText nomeAluno;
     private EditText sobrenomeAluno;
-    private EditText telefoneAluno;
+    private EditText telefoneFixoAluno;
+    private EditText telefoneCelularAluno;
     private EditText emailAluno;
     private AlunoDAO dao;
     private Aluno aluno;
@@ -66,7 +67,9 @@ public class FormularioAlunoActivity extends AppCompatActivity {
 
     private void preencheCampos() {
         nomeAluno.setText(aluno.getNome());
-        telefoneAluno.setText(aluno.getTelefone());
+        sobrenomeAluno.setText(aluno.getSobrenome());
+        telefoneFixoAluno.setText(aluno.getTelefoneFixo());
+        telefoneCelularAluno.setText(aluno.getTelefoneCelular());
         emailAluno.setText(aluno.getEmail());
     }
 
@@ -83,19 +86,22 @@ public class FormularioAlunoActivity extends AppCompatActivity {
     private void inicializacaoVariavel() {
         nomeAluno = findViewById(R.id.activity_formulario_aluno_nome);
         sobrenomeAluno = findViewById(R.id.activity_formulario_aluno_sobrenome);
-        telefoneAluno = findViewById(R.id.activity_formulario_aluno_telefone);
+        telefoneFixoAluno = findViewById(R.id.activity_formulario_aluno_telefone_fixo);
+        telefoneCelularAluno = findViewById(R.id.activity_formulario_aluno_telefone_celular);
         emailAluno = findViewById(R.id.activity_formulario_aluno_email);
     }
 
     private void preencheAluno() {
         String nome = nomeAluno.getText().toString();
         String sobrenome = sobrenomeAluno.getText().toString();
-        String telefone = telefoneAluno.getText().toString();
+        String telefoneFixo = telefoneFixoAluno.getText().toString();
+        String telefoneCelular = telefoneCelularAluno.getText().toString();
         String email = emailAluno.getText().toString();
 
         aluno.setNome(nome);
         aluno.setSobrenome(sobrenome);
-        aluno.setTelefone(telefone);
+        aluno.setTelefoneFixo(telefoneFixo);
+        aluno.setTelefoneCelular(telefoneCelular);
         aluno.setEmail(email);
     }
 }

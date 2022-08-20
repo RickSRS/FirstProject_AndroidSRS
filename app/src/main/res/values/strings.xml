@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">FirstProject_AndroidSRS</string>
     <string name="nome">Nome</string>
-    <string name="telefone">Telefone</string>
+    <string name="telefone_fixo">Telefone Fixo</string>
     <string name="email">E-mail</string>
     <string name="salvar">Salvar</string>
     <string name="remover">Remover</string>
     <string name="todo">Novo aluno</string>
     <string name="sobrenome">Sobrenome</string>
+    <string name="telefone_celular">Telefone Celular</string>
 </resources>
