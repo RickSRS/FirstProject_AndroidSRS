@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Aluno implements Serializable {
@@ -13,9 +14,16 @@ public class Aluno implements Serializable {
     private int id = 0;
     private String nome;
     private String sobrenome;
-    private String telefoneFixo;
     private String email;
-    private String telefoneCelular;
+    private List<Telefone> telefones;
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
 
     public String getSobrenome() {
         return sobrenome;
@@ -29,20 +37,12 @@ public class Aluno implements Serializable {
         this.nome = nome;
     }
 
-    public void setTelefoneFixo(String telefoneFixo) {
-        this.telefoneFixo = telefoneFixo;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
     public String getNome() {
         return nome;
-    }
-
-    public String getTelefoneFixo() {
-        return telefoneFixo;
     }
 
     public String getEmail() {
@@ -69,13 +69,5 @@ public class Aluno implements Serializable {
 
     public String getNomeCompleto() {
         return nome + " " + sobrenome;
-    }
-
-    public String getTelefoneCelular() {
-        return telefoneCelular;
-    }
-
-    public void setTelefoneCelular(String telefoneCelular) {
-        this.telefoneCelular = telefoneCelular;
     }
 }
