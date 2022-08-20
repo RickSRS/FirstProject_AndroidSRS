@@ -5,7 +5,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 public class Aluno implements Serializable {
@@ -15,15 +14,6 @@ public class Aluno implements Serializable {
     private String nome;
     private String sobrenome;
     private String email;
-    private List<Telefone> telefones;
-
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
 
     public String getSobrenome() {
         return sobrenome;

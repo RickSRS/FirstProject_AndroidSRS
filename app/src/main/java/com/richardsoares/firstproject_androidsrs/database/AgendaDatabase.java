@@ -12,6 +12,7 @@ import androidx.room.TypeConverters;
 import com.richardsoares.firstproject_androidsrs.database.converter.ConversorCalendar;
 import com.richardsoares.firstproject_androidsrs.database.converter.ConversorTipoTelefone;
 import com.richardsoares.firstproject_androidsrs.database.dao.AlunoDAO;
+import com.richardsoares.firstproject_androidsrs.database.dao.TelefoneDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
 import com.richardsoares.firstproject_androidsrs.model.Telefone;
 
@@ -29,4 +30,6 @@ public abstract class AgendaDatabase extends RoomDatabase {
                 .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }
+
+    public abstract TelefoneDAO getTelefoneDAO();
 }

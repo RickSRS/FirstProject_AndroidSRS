@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.richardsoares.firstproject_androidsrs.R;
+import com.richardsoares.firstproject_androidsrs.database.AgendaDatabase;
+import com.richardsoares.firstproject_androidsrs.database.dao.TelefoneDAO;
 import com.richardsoares.firstproject_androidsrs.model.Aluno;
+import com.richardsoares.firstproject_androidsrs.model.Telefone;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +51,9 @@ public class ListaAlunosAdapter extends BaseAdapter {
         TextView nome = view.findViewById(R.id.item_aluno_nome);
         nome.setText(aluno.getNomeCompleto());
         TextView telefone = view.findViewById(R.id.item_aluno_telefone);
-        telefone.setText(aluno.getTelefoneFixo());
+        TelefoneDAO dao = AgendaDatabase.getInstance(context).getTelefoneDAO();
+        Telefone primeiroTelefone = dao.buscaPrimeiroTelefoneDoAluno();
+        telefone.setText(primeiroTelefone.getNumero());
     }
 
     private View criaView(ViewGroup viewGroup) {
